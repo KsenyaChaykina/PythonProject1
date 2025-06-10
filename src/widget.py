@@ -1,3 +1,4 @@
+"""Обработка данных о картах и счетах"""
 user_input = input()
 
 
@@ -32,6 +33,7 @@ def mask_account_card(user_input: str) -> str:
 mask_account_card(user_input)
 
 
+"""Обработка даты"""
 user_input = input()
 
 
