@@ -1,5 +1,4 @@
 """Маска номер карты"""
-card_num = input()
 
 
 def get_mask_card_number(card_num: str) -> str:
@@ -17,10 +16,7 @@ def get_mask_card_number(card_num: str) -> str:
     return result
 
 
-get_mask_card_number(card_num)
-
 """Маска номер счета"""
-account_num = input()
 
 
 def get_mask_account(account_num: str) -> str:
@@ -30,4 +26,8 @@ def get_mask_account(account_num: str) -> str:
     return result
 
 
-get_mask_account(account_num)
+if __name__ == '__main__':
+    card_num = input()
+    get_mask_card_number(card_num)
+    account_num = input()
+    get_mask_account(account_num)

@@ -1,50 +1,31 @@
+from src import masks
+
+
 """Обработка данных о картах и счетах"""
-user_input = input()
 
 
 def mask_account_card(user_input: str) -> str:
-    if user_input.find('Счет') != -1:
-        mask = "**"
+    if 'Счет' in user_input:
         """Создание номера счета с маской"""
-        result = "Счет " + str(mask + user_input[-4:])
-        return result
+        account = user_input[-20:]
+        return 'Счет ' + masks.get_mask_account(account)
     else:
-        mask = "******"
-        result = ""
-        count = 0
-        card_type = ""
-        """Оставляет только тип карты, без номера карты"""
-        for i in user_input:
-            if i.isalpha() or i.isspace():
-                card_type += i
-        """Оставляет только номер карты, без типа карты"""
-        curd_num = ''.join(filter(str.isdigit, user_input))
-        """Создание номера карты с маской"""
-        card_num_str = str(curd_num[:6] + mask + curd_num[12:])
-        """Разделение номера карты для выведения по 4 символа через пробел"""
-        for i in card_num_str:
-            result += i
-            count += 1
-            if count % 4 == 0:
-                result += " "
-        return f"{card_type}" + result
-
-
-mask_account_card(user_input)
+        number_card = "".join(user_input[-16:].split())
+        return user_input[:16] + masks.get_mask_account(number_card)
 
 
 """Обработка даты"""
-user_input = input()
 
 
-def get_date(user_input: str) -> str:
-    """Вычисляем значения день, месяц, год"""
-    day = user_input[8:10]
-    month = user_input[5:7]
-    year = user_input[:4]
+def get_date(user_date: str) -> str:
     """Соединяем день, месяц и год в дату"""
-    date = ".".join([day, month, year])
+    date = ".".join([user_date[8:10], user_date[5:7], user_date[:4]])
     return date
 
 
-get_date(user_input)
+if __name__ == "__main__":
+    user_input = input()
+    mask_account_card(user_input)
+    """Обработка даты"""
+    user_date = input()
+    get_date(user_date)
