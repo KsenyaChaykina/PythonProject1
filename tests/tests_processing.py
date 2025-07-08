@@ -8,7 +8,7 @@ def test_filter_by_state(dictionarys):
         assert 'state' in item
 
 
-def fest_sort_by_date(dictionarys):
+def test_sort_by_date(dictionarys):
     for item in dictionarys:
         assert isinstance(item, dict)
         assert 'date' in item
