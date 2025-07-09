@@ -7,10 +7,12 @@ with open('../transactions.json', 'r', encoding='utf-8') as file:
 """Функция выдает транзакции, где валюта операции соответствует заданной"""
 
 
-def filter_by_currency(transactions: Iterable[list], code) -> list:
+def filter_by_currency(transactions: dict, code) -> list:
     for transaction in transactions:
+        """Условие, проверяющее наличие ключа в словаре"""
         if 'code' in transaction:
             if transaction["operationAmount"]["currency"]["code"] == code:
+                """Если ключ найден, выводит транзакцию"""
                 yield transaction
             else:
                 yield ''
@@ -19,9 +21,11 @@ def filter_by_currency(transactions: Iterable[list], code) -> list:
 """Функция возвращает описание каждой операции по очереди"""
 
 
-def transaction_descriptions(transactions: Iterable[list]) -> str:
+def transaction_descriptions(transactions: dict) -> str:
     for transaction in transactions:
+        """Условие, проверяющее наличие ключа в словаре"""
         if "description" in transaction:
+            """Если ключ найден, выводит назначение транзикции"""
             yield transaction["description"]
         else:
             yield ''
@@ -32,6 +36,7 @@ def transaction_descriptions(transactions: Iterable[list]) -> str:
 
 def card_number_generator(start, end):
     for num in range(start, end + 1):
+        """Разбивает 16-значное число на четыре группы по четыре цифры, каждую из которых разделяет пробел"""
         yield '{:04d} {:04d} {:04d} {:04d}'.format(num // 10 ** 12, (num // 10 ** 8) % 10 ** 4,
                                                    (num // 10 ** 4) % 10 ** 4, num % 10 ** 4)
 
