@@ -36,7 +36,7 @@ def get_date(user_date: str) -> str:
 
 if __name__ == "__main__":
     user_input = input()
-    mask_account_card(user_input)
+    print(mask_account_card(user_input))
     """Обработка даты"""
     user_date = input()
     get_date(user_date)

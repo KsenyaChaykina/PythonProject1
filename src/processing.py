@@ -28,11 +28,12 @@ if __name__ == '__main__':
     # Преобразуем в JSON
     dictionarys_list = json.loads(dictionarys_input)
     # Вызов функции
-    filter_by_state(dictionarys_list)
+    print(filter_by_state(dictionarys_list))
 
     dictionarys_input = input()
     # Заменяем одинарные кавычки на двойные
     dictionarys_input = dictionarys_input.replace("'", '"')
     # Преобразуем в JSON
     dictionarys_list = json.loads(dictionarys_input)
-    sort_by_date(dictionarys_list)
+    print(sort_by_date(dictionarys_list))
+
