@@ -1,7 +1,10 @@
 from typing import Iterable
 import json
+import os
 
-with open('../transactions.json', 'r', encoding='utf-8') as file:
+from config import ROOT_DIR
+
+with open(os.path.join(ROOT_DIR, "transactions.json"), 'r', encoding='utf-8') as file:
     transactions = json.load(file)
 
 """Функция выдает транзакции, где валюта операции соответствует заданной"""

@@ -1,3 +1,3 @@
-func_1 called with args (1, 4) and kwargs {}: result 5 
-func_1 called with args (5, 2) and kwargs {}: result 7 
-func_1 Error: unsupported operand type(s) for +: 'int' and 'str' 
+get_mask_account called with args ('12345678901234567890',) and kwargs {}: result **7890 
+get_mask_account called with args ('12345678901234567890',) and kwargs {}: result **7890 
+get_mask_account called with args ('1234567890123456789',) and kwargs {}: result **6789 

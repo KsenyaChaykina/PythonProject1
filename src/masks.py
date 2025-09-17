@@ -5,7 +5,7 @@ from src.decorators import log
 
 """Маска номер карты"""
 
-@log(os.path.join(ROOT_DIR, "logs", "log.txt"))
+@log()
 def get_mask_card_number(card_num: str) -> str:
     mask = "******"
     result = ""
@@ -15,8 +15,7 @@ def get_mask_card_number(card_num: str) -> str:
         card_num_str = str(card_num[:6] + mask + card_num[12:])
         """Разделение номера карты для выведения по 4 символа через пробел"""
         for i in card_num_str:
-            result += i1234567890123456
-            1234567890
+            result += i
             count += 1
             if count % 4 == 0:
                 result += " "
@@ -28,7 +27,7 @@ def get_mask_card_number(card_num: str) -> str:
 
 """Маска номер счета"""
 
-@log(os.path.join(ROOT_DIR, "logs", "log.txt"))
+@log()
 def get_mask_account(account_num: str) -> str:
     if len(account_num) >= 3:
         mask = "**"
