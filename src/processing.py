@@ -1,10 +1,11 @@
 from typing import Iterable
+from typing import Any
 import json
 
 """Функция, возвращающая новый список словарей по заданному ключу"""
 
 
-def filter_by_state(dictionarys_list: Iterable[list], state="EXECUTED") -> list:
+def filter_by_state(dictionarys_list: Iterable[list], state: str = "EXECUTED") -> list:
     result = []
     """Перебор значений по ключу"""
     for dictionary in dictionarys_list:
@@ -16,7 +17,7 @@ def filter_by_state(dictionarys_list: Iterable[list], state="EXECUTED") -> list:
 """Функция, возвращающая новый список словарей, отсортированных по дате"""
 
 
-def sort_by_date(dictionarys_list: Iterable[list]) -> list:
+def sort_by_date(dictionarys_list: list) -> list:
     sorted_list = sorted(dictionarys_list, key=lambda dictionarys_list: dictionarys_list['date'], reverse=True)
     return sorted_list
 
@@ -36,4 +37,3 @@ if __name__ == '__main__':
     # Преобразуем в JSON
     dictionarys_list = json.loads(dictionarys_input)
     print(sort_by_date(dictionarys_list))
-

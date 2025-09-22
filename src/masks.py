@@ -1,6 +1,11 @@
+import os
+
+from config import ROOT_DIR
+from src.decorators import log
+
 """Маска номер карты"""
 
-
+@log()
 def get_mask_card_number(card_num: str) -> str:
     mask = "******"
     result = ""
@@ -22,7 +27,7 @@ def get_mask_card_number(card_num: str) -> str:
 
 """Маска номер счета"""
 
-
+@log()
 def get_mask_account(account_num: str) -> str:
     if len(account_num) >= 3:
         mask = "**"
