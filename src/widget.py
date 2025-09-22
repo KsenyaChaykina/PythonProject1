@@ -34,9 +34,9 @@ def get_date(user_date: str) -> str:
         return ".".join(reversed_times)
 
 
-#if __name__ == "__main__":
-    #user_input = input()
-    #mask_account_card(user_input)
+if __name__ == "__main__":
+    user_input = input()
+    print(mask_account_card(user_input))
     """Обработка даты"""
-    #user_date = input()
-    #get_date(user_date)
+    user_date = input()
+    get_date(user_date)
