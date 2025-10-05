@@ -3,7 +3,7 @@ import json
 """Возвращает список словарей с данными о финансовых транзакциях"""
 
 
-def financial_transactions(file_path: str) -> list[dict]:
+def financial_transactions(file_path: str) -> list:
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             data_list = json.load(f)
