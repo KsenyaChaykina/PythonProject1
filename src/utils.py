@@ -31,4 +31,3 @@ if __name__ == '__main__':
     print(financial_transactions('C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\data\\operations.json'))
     #Ошибка "Файл не найден"
     #print(financial_transactions('C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\dataa\\operations.json'))
-

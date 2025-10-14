@@ -1,5 +1,4 @@
 import os
-import json
 from dotenv import load_dotenv
 from src.utils import financial_transactions
 import requests
@@ -23,7 +22,6 @@ def transaction_amount(transaction: dict) -> float:
         }
 
         response = requests.get(url, headers=headers)
-        status_code = response.status_code
 
         return float(response.json()['result'])
         # Обработка ошибки ключа
