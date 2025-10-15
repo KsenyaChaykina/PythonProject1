@@ -5,10 +5,11 @@ import pandas as pd
 
 from src.reading_files import reading_transactions_csv, reading_transactions_excel
 
-""" Тест на успешное чтение файла csv """
-
 
 class TestDataReader(unittest.TestCase):
+    """ Тест на успешное чтение файла csv, принимает предопределенные данные, подменяет встроенную функцию open
+     и сравнивает результат с заданными данными """
+
     def test_reading_transactions_csv(self):
         mock_csv_data = (
             "id;state;date;amount;currency_name;currency_code;from;to;description\n"
@@ -27,12 +28,10 @@ class TestDataReader(unittest.TestCase):
              'currency_name': 'Shilling', 'currency_code': 'TZS', 'from': 'Visa 1959232722494097',
              'to': 'Visa 6804119550473710', 'description': 'Перевод с карты на карту'}
         ]
-        """ Сравниваем результат с ожидаемым """
         self.assertEqual(transactions, expected_transactions)
 
-    """ Тест ошибки файл csv не найден """
-
     def test_reading_transactions_csv_file_not_found(self):
+        """ Тест ошибки - файл csv генерирует  исключение FileNotFoundError """
         m = mock_open()
         m.side_effect = FileNotFoundError
         with patch('builtins.open', m):
@@ -40,11 +39,10 @@ class TestDataReader(unittest.TestCase):
         self.assertEqual(transactions, [])
 
 
-""" Тест на успешное чтение файла Excel """
-
-
 @patch('src.reading_files.pd.read_excel')
 def test_reading_transactions_excel(mock_read_excel):
+    """ Тест на успешное чтение файла Excel, принимает предопределенные данные
+     и сравнивает результат с заданными данными """
     mock_data = {
         'id': [157454.0, 2177828.0],
         'state': ['EXECUTED', 'EXECUTED'],
@@ -84,11 +82,9 @@ def test_reading_transactions_excel(mock_read_excel):
     assert result == expected_result
 
 
-""" Тест ошибки файл excel не найден """
-
-
 @patch('src.reading_files.pd.read_excel')
 def test_reading_transactions_excel_file_not_found(mock_read_excel):
+    """ Тест ошибки - файл excel генерирует  исключение FileNotFoundError """
     mock_read_excel.side_effect = FileNotFoundError
     file_path = 'test_file.xlsx'
     result = reading_transactions_excel(file_path)
