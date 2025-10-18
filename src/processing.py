@@ -30,6 +30,3 @@ dict_list = [{'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.
 def sort_by_date(dict_list: Iterable[str]) -> None:
     sorted_list = sorted(dict_list, key=lambda dict: dict['date'], reverse=True)
     return sorted_list
-
-
-sort_by_date(dict_list)
