@@ -1,12 +1,11 @@
-import os
 from typing import Optional, Any, Callable
-from config import ROOT_DIR
+
 
 def log(filename: str | None = None) -> Any:
     def decorator(func: Callable) -> Callable:
         """Очистка формируемого файла для перезаписи данных в файл"""
-        #if os.path.exists(filename):
-            #os.remove(filename)
+        # if os.path.exists(filename):
+        # os.remove(filename)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
             """Если файл существует, то записываем в файл"""
             if filename:
@@ -30,5 +29,7 @@ def log(filename: str | None = None) -> Any:
                     """Если функция отработала с ошибкой, выводит данные об ошибке"""
                     print(f"{func.__name__} Error: {er}")
                     raise er
+
         return wrapper
+
     return decorator
