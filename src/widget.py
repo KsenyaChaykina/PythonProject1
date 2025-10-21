@@ -5,20 +5,21 @@ from src import masks
 
 def mask_account_card(user_input: str) -> str:
     card_type = ""
-    replace_user_input = user_input.replace(" ", "")
+    user_input_str = str(user_input)
+    replace_user_input = user_input_str.replace(" ", "")
     if not replace_user_input.isdigit() and not replace_user_input.isalpha():
-        if 'Счет' in user_input:
+        if 'Счет' in user_input_str:
             """Создание номера счета с маской"""
-            account = user_input[-20:]
+            account = user_input_str[-20:]
             return 'Счет ' + masks.get_mask_account(account)
         else:
-            for i in user_input:
+            for i in user_input_str:
                 if i.isalpha() or i.isspace():
                     card_type += i
-            number_card = "".join(user_input[-16:].split())
+            number_card = "".join(user_input_str[-16:].split())
             return card_type + masks.get_mask_card_number(number_card)
     else:
-        return 'Ошибка ввода данных'
+        return ''
 
 
 """Обработка даты"""
@@ -39,4 +40,4 @@ if __name__ == "__main__":
     print(mask_account_card(user_input))
     """Обработка даты"""
     user_date = input()
-    get_date(user_date)
+    print(get_date(user_date))

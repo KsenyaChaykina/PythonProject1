@@ -1,4 +1,4 @@
-from typing import Optional, Any, Callable
+from typing import Any, Callable
 
 
 def log(filename: str | None = None) -> Any:

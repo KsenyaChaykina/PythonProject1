@@ -1,23 +1,23 @@
 import json
-import os
 
-from config import ROOT_DIR
-
-with open(os.path.join(ROOT_DIR, "transactions.json"), 'r', encoding='utf-8') as file:
-    transactions = json.load(file)
+with open('C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\data\\transactions.json', 'r',
+          encoding='utf-8') as file:
+    my_transactions = json.load(file)
 
 """Функция выдает транзакции, где валюта операции соответствует заданной"""
 
 
 def filter_by_currency(transactions: dict, code) -> list:
+    filtered_transactions = []
     for transaction in transactions:
-        """Условие, проверяющее наличие ключа в словаре"""
-        if 'code' in transaction:
+        try:
             if transaction["operationAmount"]["currency"]["code"] == code:
                 """Если ключ найден, выводит транзакцию"""
-                yield transaction
-            else:
-                yield ''
+                filtered_transactions.append(transaction)
+        except KeyError:
+            if transaction['currency_code'] == code:
+                filtered_transactions.append(transaction)
+    return filtered_transactions
 
 
 """Функция возвращает описание каждой операции по очереди"""
@@ -44,10 +44,9 @@ def card_number_generator(start, end):
 
 
 if __name__ == '__main__':
-    for transaction in filter_by_currency(transactions, 'USD'):
-        print(transaction)
+    print(filter_by_currency(my_transactions, 'RUB'))
 
-    for transaction in transaction_descriptions(transactions):
+    for transaction in transaction_descriptions(my_transactions):
         print(transaction)
 
     start = int(input())

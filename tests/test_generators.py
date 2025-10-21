@@ -3,7 +3,10 @@ from src.generators import transaction_descriptions
 from src.generators import card_number_generator
 import pytest
 
-@pytest.mark.parametrize('x, y, expected', [(1, 1, '0000 0000 0000 0001'), (56, 56, '0000 0000 0000 0056'), (4444, 4444, '0000 0000 0000 4444'), (12345678, 12345678, '0000 0000 1234 5678')])
+
+@pytest.mark.parametrize('x, y, expected', [(1, 1, '0000 0000 0000 0001'), (56, 56, '0000 0000 0000 0056'),
+                                            (4444, 4444, '0000 0000 0000 4444'),
+                                            (12345678, 12345678, '0000 0000 1234 5678')])
 def test_card_number_generator(x, y, expected):
     assert list(card_number_generator(x, y))[0] == expected
     assert list(card_number_generator(156, 157))[0] == '0000 0000 0000 0156', '0000 0000 0000 0157'

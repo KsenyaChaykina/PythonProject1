@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import mock_open, patch
 from src.utils import financial_transactions
 
+
 class TestFinancialTransactions(unittest.TestCase):
     def test_financial_transactions(self):
         mock_data = '{"key": "value"}'
@@ -14,8 +15,6 @@ class TestFinancialTransactions(unittest.TestCase):
             self.assertRaises(FileNotFoundError)
         except Exception:
             self.assertRaises(Exception)
-
-
 
 
 if __name__ == '__main__':

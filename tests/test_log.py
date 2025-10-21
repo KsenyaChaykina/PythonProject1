@@ -27,7 +27,7 @@ def test_func_1_error(capsys):
     with pytest.raises(Exception):
         result = func_1(1, "dog")
     captured = capsys.readouterr()
-    assert f"func_1 Error" in captured.out
+    assert "func_1 Error" in captured.out
 
 
 def test_func_2():

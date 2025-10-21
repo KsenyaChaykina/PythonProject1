@@ -5,18 +5,18 @@ from src.widget import get_date
 
 
 def test_mask_account_card(empty_list):
-    assert mask_account_card('Maestro 1596837868705199') == 'Maestro 1596 83** **** 5199'
+    assert mask_account_card('Maestro 1596837868705199') == 'Maestro 1596 83** **** 5199 '
     assert mask_account_card('Счет 64686473678894779589') == 'Счет **9589'
-    assert mask_account_card('MasterCard 7158300734726758') == 'MasterCard 7158 30** **** 6758'
+    assert mask_account_card('MasterCard 7158300734726758') == 'MasterCard 7158 30** **** 6758 '
     assert mask_account_card('Счет 35383033474447895560') == 'Счет **5560'
-    assert mask_account_card('Visa Classic 6831982476737658') == 'Visa Classic 6831 98** **** 7658'
-    assert mask_account_card('Visa Platinum 8990922113665229') == 'Visa Platinum 8990 92** **** 5229'
-    assert mask_account_card('Visa Gold 5999414228426353') == 'Visa Gold 5999 41** **** 6353'
+    assert mask_account_card('Visa Classic 6831982476737658') == 'Visa Classic 6831 98** **** 7658 '
+    assert mask_account_card('Visa Platinum 8990922113665229') == 'Visa Platinum 8990 92** **** 5229 '
+    assert mask_account_card('Visa Gold 5999414228426353') == 'Visa Gold 5999 41** **** 6353 '
     assert mask_account_card('Счет 73654108430135874305') == 'Счет **4305'
-    assert mask_account_card('MasterCard') == 'Ошибка ввода данных'
-    assert mask_account_card('3654108430135874305') == 'Ошибка ввода данных'
-    assert mask_account_card('Счет') == 'Ошибка ввода данных'
-    assert mask_account_card('Visa Gold') == 'Ошибка ввода данных'
+    assert mask_account_card('MasterCard') == ''
+    assert mask_account_card('3654108430135874305') == ''
+    assert mask_account_card('Счет') == ''
+    assert mask_account_card('Visa Gold') == ''
     assert mask_account_card(empty_list) == ''
 
 

@@ -31,6 +31,5 @@ def reading_transactions_excel(file_path: str) -> list:
 
 
 if __name__ == '__main__':
-    print(reading_transactions_csv("C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\data\\transactions.csv"))
-    print(reading_transactions_excel(
-        "C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\data\\transactions_excel.xlsx"))
+    # print(reading_transactions_csv("C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\data\\transactions.csv"))
+    print(reading_transactions_excel("C:\\Users\\Agilent_2022\\PycharmProjects\\PythonProject1\\data\\transactions_excel.xlsx"))
